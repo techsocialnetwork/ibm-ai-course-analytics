@@ -36,6 +36,15 @@ st.markdown("""
         padding: 1rem;
         border-radius: 0.5rem;
         border-left: 4px solid #1f77b4;
+        color: #000000;
+    }
+    .skill-card {
+        background-color: #e8f4f8;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border: 2px solid #1f77b4;
+        text-align: center;
+        color: #000000;
     }
     .skill-tag {
         background-color: #e1e8ed;
@@ -44,6 +53,7 @@ st.markdown("""
         margin: 0.25rem;
         display: inline-block;
         font-size: 0.875rem;
+        color: #000000;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -156,7 +166,7 @@ def show_overview(viz, summary, df):
     skills_cols = st.columns(5)
     for i, (skill, count) in enumerate(list(summary['top_skills'].items())[:5]):
         with skills_cols[i]:
-            st.markdown(f"<div class='metric-card'><strong>{skill}</strong><br>{count} courses</div>", 
+            st.markdown(f"<div class='skill-card'><strong>{skill}</strong><br>{count} courses</div>", 
                        unsafe_allow_html=True)
 
 
