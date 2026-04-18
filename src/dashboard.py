@@ -39,12 +39,16 @@ st.markdown("""
         color: #000000;
     }
     .skill-card {
-        background-color: #e8f4f8;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         padding: 1rem;
         border-radius: 0.5rem;
-        border: 2px solid #1f77b4;
         text-align: center;
-        color: #000000;
+        color: #ffffff !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .skill-card strong {
+        color: #ffffff !important;
+        font-size: 1.1rem;
     }
     .skill-tag {
         background-color: #e1e8ed;
@@ -166,8 +170,13 @@ def show_overview(viz, summary, df):
     skills_cols = st.columns(5)
     for i, (skill, count) in enumerate(list(summary['top_skills'].items())[:5]):
         with skills_cols[i]:
-            st.markdown(f"<div class='skill-card'><strong>{skill}</strong><br>{count} courses</div>", 
-                       unsafe_allow_html=True)
+            st.markdown(
+                f"""<div class='skill-card'>
+                    <div style='color: #ffffff; font-size: 1.1rem; font-weight: bold;'>{skill}</div>
+                    <div style='color: #ffffff; font-size: 0.9rem; margin-top: 0.5rem;'>{count} courses</div>
+                </div>""", 
+                unsafe_allow_html=True
+            )
 
 
 def show_courses(df):
