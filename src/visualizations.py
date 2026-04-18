@@ -213,7 +213,7 @@ class CourseVisualizer:
                 'bar': {'color': "#2ecc71"},
                 'bgcolor': "white",
                 'borderwidth': 2,
-                'bordercolor': "#gray",
+                'bordercolor': "gray",
                 'steps': [
                     {'range': [0, 25], 'color': '#ffcccc'},
                     {'range': [25, 50], 'color': '#ffffcc'},
