@@ -5,6 +5,7 @@ Creates interactive charts and visualizations for the course dashboard.
 """
 
 import pandas as pd
+import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -239,9 +240,6 @@ class CourseVisualizer:
         Returns:
             Plotly figure
         """
-        # Simulate completion dates for visualization
-        import numpy as np
-        
         completed_courses = self.df[self.df['status'] == 'Complete'].copy()
         
         if len(completed_courses) == 0:
