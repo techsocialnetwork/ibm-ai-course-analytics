@@ -19,6 +19,13 @@ except ImportError:
     OPENAI_AVAILABLE = False
     logging.warning("OpenAI package not installed. OpenAI features will be disabled.")
 
+# Try to import IBM Watsonx (optional)
+try:
+    from ibm_watson_machine_learning import APIClient
+    WATSONX_AVAILABLE = True
+except ImportError:
+    WATSONX_AVAILABLE = False
+
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -75,7 +82,9 @@ class AICourseAnalyzer:
     
     def _init_watsonx(self):
         """Initialize IBM Watsonx client."""
-        # Placeholder for Watsonx implementation
+        if not WATSONX_AVAILABLE:
+            raise ImportError("IBM Watsonx package not installed. Run: pip install ibm-watson-machine-learning")
+        
         logger.warning("Watsonx implementation is a placeholder")
         raise NotImplementedError("Watsonx support coming soon")
     
